@@ -1,15 +1,23 @@
+import { useState } from "react";
 import "./App.css";
-import List from "./components/List";
+import ListTodo from "./components/ListTodo";
 import Todo from "./components/Todo";
-function App() {
+
+const App: React.FC = () => {
+  const [tasks, setTasks] = useState<string[]>([]);
+
+  const handleAddtodo = (task: string) => {
+    setTasks([...tasks, task]);
+  };
+
   return (
     <>
       <div>
-        <Todo />
-        <List />
+        <Todo onAddTask={handleAddtodo} />
+        <ListTodo tasks={tasks} />
       </div>
     </>
   );
-}
+};
 
 export default App;
