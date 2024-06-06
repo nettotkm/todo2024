@@ -1,9 +1,5 @@
 function List() {
-  return (
-    <ul>
-      <li>list</li>
-    </ul>
-  );
+  return <></>;
 }
 
 export default List;
