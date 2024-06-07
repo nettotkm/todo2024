@@ -33,7 +33,7 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  color: red;
+  color: #6d07f2;
 }
 
 button {
@@ -104,14 +104,22 @@ input[type="text"]:focus-visible {
   padding-top: 20px;
 }
 
+.task-name {
+  flex-grow: 1;
+  margin-left: 10px;
+  font-size: 1.5em;
+}
+
 .task-card {
   display: flex;
   align-items: center;
-  padding: 10px;
+  justify-content: space-between;
+  background: #fff;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: #1a1a1a;
-  color: #ffffff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
 }
 
 .task-card input[type="checkbox"] {
@@ -119,6 +127,9 @@ input[type="text"]:focus-visible {
   width: 20px;
   height: 20px;
   cursor: pointer;
+}
+.task-card:hover {
+  background-color: #f0f0f0;
 }
 
 .task-card input[type="checkbox"]:checked {
@@ -129,19 +140,29 @@ input[type="text"]:focus-visible {
   flex-grow: 1;
 }
 
-.task-card.completed .task-name {
+.task-name.completed {
   text-decoration: line-through;
+  color: gray;
 }
 
-.task-card .delete-button {
-  border: none;
-  background: none;
-  color: #ff6347;
-  cursor: pointer;
+.created-at {
+  margin-left: 10px;
+  font-size: 0.8em;
+  color: #888;
 }
 
 .task-card .delete-button:hover {
   text-decoration: underline;
+}
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ff6b6b;
+  transition: color 0.3s ease;
+}
+.delete-button:hover {
+  color: #ff1c1c;
 }
 
 @media (prefers-color-scheme: light) {
@@ -149,8 +170,16 @@ input[type="text"]:focus-visible {
     background-color: #f9f9f9;
     color: #000000;
   }
+}
+@media (max-width: 600px) {
+  .task-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-  .task-card .delete-button {
-    color: #ff6347;
+  .task-name,
+  .created-at,
+  .delete-button {
+    margin: 5px 0;
   }
 }

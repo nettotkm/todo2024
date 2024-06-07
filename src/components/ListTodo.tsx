@@ -23,17 +23,12 @@ const ListTodo: React.FC<ListTodoProps> = ({
             checked={task.completed}
             onChange={() => handleToggle(task.id)}
           />
-          <span
-            className="task-name"
-            style={{ textDecoration: task.completed ? "line-through" : "none" }}
-          >
+          <span className={`task-name ${task.completed ? "completed" : ""}`}>
             {task.text}
           </span>
-          <span
-            style={{ marginLeft: "10px", fontSize: "0.8em", color: "#888" }}
-          >
-            Created at:
-            {task.createdAt ? task.createdAt.toLocaleString() : ""}
+
+          <span className="created-at">
+            Created at: {task.createdAt.toLocaleString()}
           </span>
           <button
             onClick={() => handleDelete(task.id)}

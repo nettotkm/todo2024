@@ -9,7 +9,6 @@ const Todo: React.FC<TodoProps> = ({ onAddTask }) => {
   const [error, setError] = useState<string>();
 
   const addTodo = (): void => {
-    console.log("aqui");
     if (todo.trim() === "") {
       setError("Please enter a task.");
       return;
