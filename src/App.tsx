@@ -7,6 +7,7 @@ interface Task {
   id: number;
   text: string;
   completed: boolean;
+  createdAt: Date;
 }
 
 const App: React.FC = () => {
@@ -18,6 +19,7 @@ const App: React.FC = () => {
       id: nextTaskId,
       text: taskText,
       completed: false,
+      createdAt: new Date(),
     };
     setTasks([...tasks, newTask]);
     SetNextTaskId(nextTaskId + 1);

@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 interface ListTodoProps {
-  tasks: { id: number; text: string; completed: boolean }[];
+  tasks: { id: number; text: string; completed: boolean; createdAt: Date }[];
   handleToggle: (taskId: number) => void;
   handleDelete: (taskId: number) => void;
 }
@@ -28,6 +28,12 @@ const ListTodo: React.FC<ListTodoProps> = ({
             style={{ textDecoration: task.completed ? "line-through" : "none" }}
           >
             {task.text}
+          </span>
+          <span
+            style={{ marginLeft: "10px", fontSize: "0.8em", color: "#888" }}
+          >
+            Created at:
+            {task.createdAt ? task.createdAt.toLocaleString() : ""}
           </span>
           <button
             onClick={() => handleDelete(task.id)}
